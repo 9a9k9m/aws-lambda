@@ -1,13 +1,13 @@
 # output attributes
-resource "aws_instance" "first_instance" {
+resource "aws_instance" "ec2_3" {
     ami   = var.AMIS[var.AWS_REGION]
     instance_type = "t2.micro"
 
     provisioner "local.exce" {
-        command = "echo ${aws_instance.first_instance.private_ip} >> private_ips.txt"
+        command = "echo ${aws_instance.ec2_3.private_ip} >> private_ips.txt"
     }
 }
 
 output "ip" {
-    value = aws_instance.first_instance.public_ip
+    value = aws_instance.ec2_3.public_ip
 }

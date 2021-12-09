@@ -95,11 +95,13 @@ resource "aws_route_table" "main-public" {
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.main-GW.id
-
-        tags = {
-            Name = "main-public-1"
-        }
     }
+
+    tags = {
+        Name = "main-public"
+    }
+
+
 }
 # route associantion public
 

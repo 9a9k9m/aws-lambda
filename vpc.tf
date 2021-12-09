@@ -97,7 +97,7 @@ resource "aws_route_table" "main-public" {
         gateway_id = aws_internet_gateway.main-GW.id
 
         tags = {
-            Name = "main-public"
+            Name = "main-public-1"
         }
     }
 }

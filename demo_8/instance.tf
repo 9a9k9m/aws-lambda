@@ -16,7 +16,7 @@ resource "aws_instance" "demo_8" {
     
     # the public ssh key
     
-    key_name = my_key_pair.mykey.key_name
+    key_name = aws_key_pair.mykey.key_name
 }
 
 

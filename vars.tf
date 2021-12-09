@@ -3,11 +3,11 @@ variable "AWS_REGION" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-    default = "mykeys"
+    default = "mykey"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-    default = "mykeys.pub"
+    default = "mykey.pub"
 }
 
 variables "AMIS" {

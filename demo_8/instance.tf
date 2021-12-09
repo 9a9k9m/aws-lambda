@@ -1,6 +1,6 @@
 resource "aws_instance" "demo_8" {
     ami = var.AMIS[var.AWS_REGION]
-    type = "t2.micro"
+    instance_type = "t2.micro"
 
     tags {
         Name = "ec2-demo_8"
@@ -17,8 +17,6 @@ resource "aws_instance" "demo_8" {
     # the public ssh key
     
     key_name = my_key_pair.mykeypair.key_name
-
-
 }
 
 

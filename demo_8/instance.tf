@@ -2,7 +2,7 @@ resource "aws_instance" "demo_8" {
     ami = var.AMIS[var.AWS_REGION]
     instance_type = "t2.micro"
 
-    tags {
+    tags = {
         Name = "ec2-demo_8"
     }
 
@@ -12,7 +12,7 @@ resource "aws_instance" "demo_8" {
 
     # security group 
 
-    vpc_security_group_ids = [aws_security_group.allow-ssh.id
+    vpc_security_group_ids = [aws_security_group.allow-ssh.id]
     
     # the public ssh key
     

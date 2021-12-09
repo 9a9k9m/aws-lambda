@@ -1,9 +1,9 @@
 # vpc 
 
 resource "aws_vpc" "main" {
-    cidr = "10.0.0.0/16"
+    cidr_block = "10.0.0.0/16"
 
-    tags {
+    tags = {
         Name = "main"
     }
 }
@@ -16,8 +16,8 @@ resource "aws_subnet" "main-public-1" {
     map_public_ip_on_launch = "true"
     availability_zone = "ap-southeast-1a"
 
-    tags {
-        Name = "main-public-1"
+    tags = {
+        Name ="main-public-1"
     }
 }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "main-public-2" {
     cidr_block = "10.0.2.0/24"
     availability_zone = "ap-southeast-1b"
 
-    tags {
+    tags = {
         Name = "main-public-2"
     }
 }
@@ -38,7 +38,7 @@ resource "aws_subnet" "main-public-3" {
     cidr_block = "10.0.3.0/24"
     availability_zone = "ap-southeast-1c"
 
-    tags {
+    tags = {
         Name = "main-public-3"
     }
 }
@@ -51,7 +51,7 @@ resource "aws_subnet" "main-private-1" {
     cidr_block = "10.0.4.0/24"
     availability_zone = "ap-southeast-1a"
 
-    tags {
+    tags = {
         Name = "main-private-1"
     }
 }
@@ -61,7 +61,7 @@ resource "aws_subnet" "main-private-2" {
     cidr_block = "10.0.5.0/24"
     availability_zone = "ap-southeast-1b"
 
-    tags {
+    tags = {
         Name = "main-private-2"
     }
 }
@@ -71,7 +71,7 @@ resource "aws_subnet" "main-private-3" {
     cidr_block = "10.0.6.0/24"
     availability_zone = "ap-southeast-1c"
 
-    tags {
+    tags = {
         Name = "main-private-3"
     }
 }
@@ -79,10 +79,10 @@ resource "aws_subnet" "main-private-3" {
 
 # internet GW
 
-resource "aws_internet_GW" "main-GW" {
+resource "aws_internet_gateway" "main-GW" {
     vpc_id = aws_vpc.main.id
 
-    tags {
+    tags = {
         Name = "main"
     }
 }
@@ -96,24 +96,24 @@ resource "aws_route_table" "main-public" {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_GW.main-GW.id
 
-        tags {
+        tags = {
             Name = "main-public"
         }
     }
 }
 # route associantion public
 
-resource "aws_subnet_association" "main-public-1-a" {
+resource "aws_route_table_association" "main-public-1-a" {
     subnet_id = aws_subnet.main-public-1.id
     route_table_id = aws_route_table.main-public.id
 }
 
-resource "aws_subnet_association" "main-public-2-a" {
+resource "aws_route_table_association" "main-public-2-a" {
     subnet_id = aws_subnet.main-public-2.id
     route_table_id = aws_route_table.main-public.id
 }
 
-resource "aws_subnet_association" "main-public-3-a" {
+resource "aws_route_table_association" "main-public-3-a" {
     subnet_id = aws_subnet.main-public-3.id
     route_table_id = aws_route_table.main-public.id
 }

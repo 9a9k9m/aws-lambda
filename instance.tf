@@ -2,7 +2,7 @@ resource "aws_instance" "demo_8" {
     ami = var.AMIS[var.AWS_REGION]
     instance_type = "t2.micro"
 
-    tags {
+    tags = {
         Name = "ec2-demo_8"
     }
 

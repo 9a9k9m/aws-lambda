@@ -3,9 +3,9 @@ variabele "AWS_REGION" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-    default = "firstkey"
+    default = "mykey"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-    default = "firstkey.pub"
+    default = "mykey.pub"
 }

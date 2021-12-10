@@ -17,3 +17,8 @@ variable "AMIS" {
         ap-southeast-2 = "ami-0bf8b986de7e3c7ce"
     }
 }
+
+variable "AWS_ACCESS_KEY"{
+}
+variable "AWS_SECRET_KEY"{
+}

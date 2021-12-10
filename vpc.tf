@@ -87,6 +87,7 @@ resource "aws_internet_gateway" "main-GW" {
 
     tags = {
         Name = "main"
+        purpose = "Jenkins"
     }
 }
 

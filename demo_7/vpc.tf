@@ -54,7 +54,7 @@ resource "aws_subnet" "main-private-1" {
     map_public_ip_on_launch = "false"
     availability_zone  = "ap-southeast-1"
 
-    tag = {
+    tags = {
         Name = "main-private-1"
     }
 }
@@ -67,6 +67,17 @@ resource "aws_subnet" "main-private-2" {
     availability_zone = "ap-southeast-1"
 
     tags  = {
+        Name  = "main-private-2"
+    }
+}
+
+resource "aws_subnet" "main-private-2" {
+    vpc_id   =  aws_vpc.main.id
+    cidr_block   = "10.0.6.0/24"
+    map_public_ip_on_launch = "false"
+    availability_zone = "ap-southeast-1"
+
+    tags  = {
         Name  = "main-private-3"
     }
 }
@@ -75,7 +86,7 @@ resource "aws_subnet" "main-private-2" {
 # internet GW
 
 resource "aws_internet_gateway" "main-gw" {
-    vpc_id  =  aws_vpc.main.vpc_id
+    vpc_id  =  aws_vpc.main.id
 
     tags  =  {
         Name = "main"
@@ -89,10 +100,10 @@ resource "aws_route_table" "main-public" {
     vpc_id = aws_vpc.main.id
     route {
         cidr_block = "0.0.0.0/0"
-        gateway_id = aws_internet_gateway.main-gw
+        gateway_id = aws_internet_gateway.main-gw.id
     }
 
-    tags {
+    tags = {
         Name = "main_public-1"
     }
 }
@@ -107,12 +118,12 @@ resource "aws_route_table_association" "main-public-1-a"{
 
 
 resource "aws_route_table_association" "main-public-2-a" {
-    subnet_id   = aws_subnet.main-public-2.subnet_id
+    subnet_id   = aws_subnet.main-public-2.id
     route_table_id = aws_route_table.main-public.id
 }
 
 
 resource "aws_route_table_association" "main-public-3-a" {
-    subnet_id = aws_subnet.main_public-3.subnet_id
+    subnet_id = aws_subnet.main-public-3.id
     route_table_id = aws_route_table.main-public.id
 }

@@ -8,7 +8,6 @@ resource "aws_vpc" "main" {
 
     tags = {
         Name = "main"
-        purpose = "Jenkins"
     }
 }
 
@@ -88,7 +87,6 @@ resource "aws_internet_gateway" "main-GW" {
 
     tags = {
         Name = "main"
-        purpose = "Jenkins"
     }
 }
 

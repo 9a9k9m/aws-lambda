@@ -111,18 +111,18 @@ resource "aws_route_table" "main-public" {
 
 # route table association
 
-resource "aws_route_table_association" "main-public-1-a{
-    subnet_id = aws_subnet.main-public-1.id
+resource "aws_route_table_association" "main-public-1-a" {
+    subnet_id = aws_subnet.public-subnet-1.id
     route_table_id = aws_route_table.main-public.id
 } 
 
-resource "aws_route_table_association" "main-public-1-b" {
-    subnet_id = aws_subnet.main-public-2.id
+resource "aws_route_table_association" "main-public-2-a" {
+    subnet_id = aws_subnet.public-subnet-2.id
     route_table_id = aws_route_table.main-public.id
 }
 
 
-resource "aws_route_table_association" "main-public-1-c" {
-    subnet_id = aws_subnet.main-public-3.id
+resource "aws_route_table_association" "main-public-3-a" {
+    subnet_id = aws_subnet.public-subnet-3.id
     route_table_id = aws_route_table.main-public.id
 }

@@ -48,7 +48,7 @@ resource "aws_security_group" "allow_mariadb" {
     from_port = 3306
     to_port = 3306
     protocol = "tcp"
-    securityu_groups = [aws_security_group.allow-ssh.id]
+    security_groups = [aws_security_group.allow-ssh.id]
     }
 
 

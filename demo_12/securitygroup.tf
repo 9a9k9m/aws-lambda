@@ -40,9 +40,9 @@ resource "aws_security_group" "allow-ssh" {
 }
 
 
-resource "aws_security_group" "allow_mariaDB" {
+resource "aws_security_group" "allow_mariadb" {
     vpc = aws_vpc.main.id
-    name = "allow-mariaDB"
+    name = "allow-mariadb"
 
     ingress {
     from_port = 3306
@@ -57,7 +57,7 @@ resource "aws_security_group" "allow_mariaDB" {
         to_port = 0
         protocol = "-1"
         cidr_block = ["0.0.0.0/0"]
-        self = "true"
+        self = true
     } 
 
 

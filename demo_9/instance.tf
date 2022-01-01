@@ -21,7 +21,7 @@ resource "aws_instance" "demo_9" {
     key_name = aws_key_pair.sonykey.key_name
 }
 
-resource "aws_ebs_volume" "ebs-volume-1" {
+#resource "aws_ebs_volume" "ebs-volume-1" {
     availability_zone = "ap-southeast-1a"
     type = "gp2"
     size = 20
@@ -32,7 +32,7 @@ resource "aws_ebs_volume" "ebs-volume-1" {
 }
 
 
-resource "aws_volume_attachment" "ebs-volume-1-attachment" {
+#resource "aws_volume_attachment" "ebs-volume-1-attachment" {
     device_name = "/dev/sdh"
     instance_id = aws_instance.demo_9.id
     volume_id = aws_ebs_volume.ebs-volume-1.id

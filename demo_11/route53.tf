@@ -11,8 +11,8 @@ resource "aws_route53_record" "server1-record" {
 }
 
 
-resource "aws_route_53" "www-record" {
-    zone_id = aws_route_53_zone.seven-square.zone_id
+resource "aws_route53_record" "www-record" {
+    zone_id = aws_route53_zone.seven-square.zone_id
     name = "www.sevensquare.com"
     type = "A"
     ttl = "60"
@@ -20,5 +20,5 @@ resource "aws_route_53" "www-record" {
 }
 
 output "ns-servers" {
-    value = aws_routes3_zone.newtech-academy.name_servers
+    value = aws_route53_zone.seven-square.name_servers
 }

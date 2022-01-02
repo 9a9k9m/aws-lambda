@@ -28,9 +28,9 @@ resource "aws_security_group" "allow-ssh" {
 
     egress {
         from_port = 0
-        to-port = 0
+        to_port = 0
         protocol = "-1"
-        cidr_block = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
 
@@ -40,8 +40,8 @@ resource "aws_security_group" "allow-ssh" {
 }
 
 
-resource "aws_security_group" "allow_mariadb" {
-    vpc = aws_vpc.main.id
+resource "aws_security_group" "allow-mariadb" {
+    vpc_id = aws_vpc.main.id
     name = "allow-mariadb"
 
     ingress {
@@ -62,7 +62,7 @@ resource "aws_security_group" "allow_mariadb" {
 
 
     tags = {
-        Name = "allow-mariaDB"
+        Name = "allow-mariadb"
     }
 }
 

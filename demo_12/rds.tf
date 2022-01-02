@@ -7,7 +7,7 @@ resource "aws_db_subnet_group" "mariadb-subnet" {
 
 resource "aws_db_parameter_group" "mariadb-parameters" {
     name = "mariadb-parameters"
-    family = "maradb10.4"
+    family = "mariadb10.4"
     description = "mariaDB-parameter-group"
 
     parameter {
@@ -23,7 +23,7 @@ resource "aws_db_instance" "mariadb" {
     identifire           = "mariadb"
     name                 = "mariadb"
     username             = "root"
-    password             = var.RDS__PASSWORD
+    password             = var.RDS_PASSWORD
     instance_class       = db.t2.micro
     storage_type         = "gp2"
     allocated_storage    = 100

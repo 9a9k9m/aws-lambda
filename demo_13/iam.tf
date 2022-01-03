@@ -1,6 +1,6 @@
-# group defination
+# create group 
 
-resource "aws_iam_group" "administrators-attach" {
+resource "aws_iam_group" "administrators" {
     name = "administrators"
 }
 
@@ -11,7 +11,7 @@ resource "aws_iam_policy_attachment" "administrators-attach" {
     policy_arn = "arn:aws:iam::aws:policy/AdministratorsAccess"
 }
 
-# user  
+# create  users  
 
 resource "aws_iam_user" "admin1" {
     name = "admin1"

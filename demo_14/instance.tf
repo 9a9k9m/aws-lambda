@@ -14,7 +14,7 @@ resource "aws_instance" "demo_14" {
 
     # instance security group
 
-    vpc_security_group_ids = aws_security_group.instance-sg.id
+    vpc_security_group_ids = [aws_security_group.instance-sg.id]
 
 
     # the ssh public key

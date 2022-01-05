@@ -1,51 +1,47 @@
-# create IAM role 
-
 resource "aws_iam_role" "s3-mybucket-role" {
     name                = "s3-mybucket-role"
-    assume_role_policy  = <<EFO
-
+    assume_role_policy = <<EOF
 {
-    "version": "2012-10-17",
-    "statement": [
+    "Version": "2012-10-17",
+    "Statement": [
         {
             "Action": "sts:AssumeRole",
-            "principal": {
-                "service": "ec2.amazonaws.com"    
+            "Principal": {
+                "Service": "ec2.amazonaws.com"
             },
-
             "Effect": "Allow",
-            "Sid":""
+            "Sid": ""
         }
     ]
 }
-EFO
+EOF
 
 }
 
 resource "aws_iam_instance_profile" "s3-mybucket-role-instanceprofile" {
     name = "s3-mybucket-role"
-    role = "aws_iam_role.s3-mybucket-role.name"
+    role = aws_iam_role.s3-mybucket-role.name
 }
 
 
 resource "aws_iam_role_policy" "s3-mybucket-role-policy" {
-  name = "test_policy"
-  role = aws_iam_role.s3_mybucket_role.id
-  policy = <<EOF
+    name = "s3-mybucket-role-policy"
+    role = aws_iam_role.s3-mybucket-role.id
+    policy = <<EOF
 {
-    Version = "2012-10-17",
-    Statement = [
-       {
-          "Effect": "Allow",
-          "Action": [
-              "s3:*"
-           ],
-          "Resorce": [
-              "arm:aws:s3:::mybucket-honda987",
-              "arn:aws:s3:::mybucket-honda987/*"
-           ]
-       }
-    ] 
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::mybucket-honda987",
+                "arn:aws:s3:::mybucket-honda987/*"
+            ]
+        }
+    ]
 }
 EOF
 

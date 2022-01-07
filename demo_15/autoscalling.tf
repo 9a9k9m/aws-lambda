@@ -1,4 +1,4 @@
-resource "aws_launch_configuration" "example-launchcofig" {
+resource "aws_launch_configuration" "example-launchconfig" {
     name_prefix         = "example-launchconfig"
     image_id            = var.AMIS[var.AWS_REGION]
     instance_type       = "t2.micro"

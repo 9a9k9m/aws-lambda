@@ -1,6 +1,6 @@
 resource "aws_elb" "my-elb" {
     name            = "my-elb"
-    subnets         = [aws_subnets.public-1.id, aws_subnet.main-public-2.id]
+    subnets         = [aws_subnet.public-1.id, aws_subnet.public-2.id]
     security_groups = [aws_security_group.elb-securitygroup.id]
     listener {
         instance_port = 80
@@ -9,10 +9,9 @@ resource "aws_elb" "my-elb" {
         lb_protocol         = "http"
     }
 
-
     health_check {
-        healthy_thershold       = 2
-        unhealthty_thershold    = 2
+        healthy_threshold       = 2
+        unhealthy_threshold    = 2
         timeout                 = 3
         target                  = "http;80"
         interval                = 30

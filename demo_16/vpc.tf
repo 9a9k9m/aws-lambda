@@ -86,7 +86,7 @@ resource "aws_subnet" "private-3" {
 # internet gateway
 
 resource "aws_internet_gateway" "main-gw" {
-    vpc_id = aws_vpc.mian.id
+    vpc_id = aws_vpc.main.id
 
     tags  = {
         Name = "main-gw"

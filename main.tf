@@ -19,7 +19,7 @@ module "vpc" {
 }
 
 
-modules "webserver" {
+module "webserver" {
   source = "./modules/webserver"
   vpc_id = module.vpc.vpc_id
   my_ip = var.my_ip

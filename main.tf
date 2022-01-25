@@ -9,7 +9,7 @@ module "vpc" {
   name = "server-vpc"
   cidr = var.vpc_cidr_block 
 
-  public_subnets  =  [var.subnet_cidr_block]
+  public_subnet  =  [var.subnet_cidr_block]
   public_subnet_tags = {Name = "${var.env-prefix}-public-subnets"}
   azs  = [var.avail_zone]
 
@@ -28,6 +28,6 @@ module "webserver" {
   instance_type = var.instance_type
   avail_zone = var.avail_zone
   path_to_public_key = var.path_to_public_key
-  subnet_id = module.vpc.public_subnets
+  subnet_id = module.vpc.public_subnet
   
 }

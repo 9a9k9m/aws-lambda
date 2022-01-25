@@ -29,7 +29,7 @@ module "webserver" {
   path_to_public_key = var.path_to_public_key
   avail_zone = var.avail_zone
   subnet_cidr_block = var.subnet_cidr_block
-  subnet_id = module.vpc.public_subnets
+  public_subnet_id = module.vpc.public_subnets
 
 }
 

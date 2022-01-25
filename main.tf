@@ -29,7 +29,6 @@ module "webserver" {
   avail_zone = var.avail_zone
   path_to_public_key = var.path_to_public_key
   subnet_id = module.vpc.public_subnets[0]
-  avail_zone = var.avail_zone
 
   
 }

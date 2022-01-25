@@ -27,8 +27,9 @@ module "webserver" {
   image_name = var.image_name
   instance_type = var.instance_type
   path_to_public_key = var.path_to_public_key
-  public_subnet_id = module.vpc.public_subnets[0]
   avail_zone = var.avail_zone
+  subnet_cidr_block = var.subnet_cidr_block
+  subnet_id = module.vpc.public_subnets
 
 }
 

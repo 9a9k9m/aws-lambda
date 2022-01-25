@@ -28,6 +28,7 @@ module "webserver" {
   instance_type = var.instance_type
   avail_zone = var.avail_zone
   path_to_public_key = var.path_to_public_key
+  subnet_cidr_block  = var.subnet_cidr_block
 
   
 }

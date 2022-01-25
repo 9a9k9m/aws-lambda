@@ -72,6 +72,7 @@ resource "aws_instance" "webserver" {
     associate_public_ip = true
     key_name = aws_key_pair.mykeypair.key_name
     user_data = file("lamp-server.sh")
+    
 
   tags = {
     Name = "${var.env-prefix}-webserver"

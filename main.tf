@@ -28,5 +28,5 @@ module "webserver" {
   instance_type = var.instance_type
   avail_zone = var.avail_zone
   path_to_public_key = var.path_to_public_key
-  subnet_id = module.vpc.public_subnets
+  public_subnet_id = module.vpc.public_subnets
 }

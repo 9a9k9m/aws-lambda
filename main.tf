@@ -1,4 +1,4 @@
-resource "aws" {
+provider "aws" {
   region = "ap-southeast-1"
 }
 

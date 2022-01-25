@@ -19,7 +19,7 @@ module "vpc" {
 }
 
 
-module "webserver" {
+modules "webserver" {
   source = "./modules/webserver"
   vpc_id = module.vpc.vpc_id
   my_ip = var.my_ip
@@ -28,6 +28,6 @@ module "webserver" {
   instance_type = var.instance_type
   avail_zone = var.avail_zone
   path_to_public_key = var.path_to_public_key
-  subnet_id = module.vpc.public_subnet
+  subnet_id = module.vpc.public_subnets
   
 }

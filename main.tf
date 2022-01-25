@@ -11,7 +11,7 @@ module "vpc" {
 
   public_subnets  =  [var.subnet_cidr_block]
   public_subnet_tags = {Name = "${var.env-prefix}-public-subnets"}
-  availability_zone    = [var.avail_zone]
+  availability_zone    = var.avail_zone
 
   tags = {
     Name = "${var.env-prefix}-server-vpc"
